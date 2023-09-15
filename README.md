@@ -24,7 +24,7 @@ npm install
 ```
 
 ## Configuración frontend
-Para configurar los datos del cargo, pk del comercio, rsa_id, rsa_public_key y datos del cliente se tiene que modificar en el archivo `static/js/config/index.js`.
+Para configurar los datos del cargo, pk y sk de del cliente se tiene que modificar en el archivo `assets/js/checkout.js`.
 
 ```js
 
