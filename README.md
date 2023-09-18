@@ -14,6 +14,7 @@ La demo integra Culqi Angular, Checkout V4 , es compatible con la v2.0 del Culqi
 
 > Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
+* Para encriptar el payload debes generar un id y llave RSA  ingresando a CulqiPanel > Desarrollo  > RSA Keys.
 
 ## Instalación
 
@@ -24,7 +25,7 @@ npm install
 ```
 
 ## Configuración frontend
-Para configurar los datos del cargo, pk y sk de del cliente se tiene que modificar en el archivo `assets/js/checkout.js`.
+Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modificar en el archivo `assets/js/checkout.js`.
 
 ```js
 
