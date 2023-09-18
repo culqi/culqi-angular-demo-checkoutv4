@@ -1,6 +1,6 @@
 # DEMO - Culqi Angular + Checkout V4
 
-La demo integra Culqi Angular, Checkout V4 , es compatible con la v2.0 del Culqi API, con esta demo podrás generar tokens.
+La demo integra Culqi Angular, Checkout V4 , es compatible con la v2.0 del Culqi API, con esta demo podrás **generar tokens** (tarjeta y Yape) y confirmar órdenes.
 
 ## Requisitos
 
