@@ -1,27 +1,60 @@
-# DemoCheckoutWithAngular
+# DEMO - Culqi Angular + Checkout V4
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+La demo integra Culqi Angular, Checkout V4 , es compatible con la v2.0 del Culqi API, con esta demo podrás **generar tokens** (tarjeta y Yape) y confirmar órdenes.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 16.0+
+- Afiliate [aquí](https://afiliate.culqi.com/).
+- Si vas a realizar pruebas obtén tus llaves desde [aquí](https://integ-panel.culqi.com/#/registro), si vas a realizar transacciones reales obtén tus llaves desde [aquí](https://mipanel.culqi.com/#/registro).
 
-## Code scaffolding
+> Recuerda que para obtener tus llaves debes ingresar a tu CulqiPanel > Desarrollo > ***API Keys***.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![alt tag](http://i.imgur.com/NhE6mS9.png)
 
-## Build
+> Recuerda que las credenciales son enviadas al correo que registraste en el proceso de afiliación.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Para encriptar el payload debes generar un id y llave RSA  ingresando a CulqiPanel > Desarrollo  > RSA Keys.
 
-## Running unit tests
+## Instalación
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecuta los siguientes comandos:
 
-## Running end-to-end tests
+```bash
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Configuración frontend
+Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modificar en el archivo `assets/js/checkout.js`.
 
-## Further help
+```js
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ const apiKey = "sk_test_1573b0e8079863ff";
+ Culqi.publicKey = "pk_test_90667d0a57d45c48";
+        Culqi.settings({
+            currency: "PEN",
+            amount:50000,
+            title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
+            order: data.id,
+            culqiclient: "prestashop",
+            culqiclientversion: "1.1.0"
+        });
+```
+
+## Inicializar la demo
+Ejecutar el siguiente comando:
+
+```bash
+npm start
+```
+
+## Probar la demo
+
+Para poder visualizar el frontend de la demo ingresar a la siguiente URL:
+
+http://localhost:4200/
+
+## Documentación
+
+- [Referencia de Documentación](https://docs.culqi.com/)
+- [Referencia de API](https://apidocs.culqi.com/)
