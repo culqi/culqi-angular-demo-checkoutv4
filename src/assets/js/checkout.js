@@ -70,7 +70,9 @@ fetch(apiUrl, requestOptions)
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
             order: data.id,
             culqiclient: "prestashop",
-            culqiclientversion: "1.1.0"
+            culqiclientversion: "1.1.0",
+            xculqirsaid: 'INSERTE_SU_RSA_ID',
+            rsapublickey: `INSERTE_SU_LLAVE_RSA`,    
         });
         Culqi.options({
             lang: "auto",
