@@ -36,8 +36,8 @@ Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modi
             amount: Math.floor(Math.random() * 10000) + 1,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
             order: data.id,         
-            xculqirsaid: 'El rsaId del comercio',
-            rsapublickey: `El rsa key publico del comercio`,    
+            xculqirsaid: 'Id de la llave RSA',
+            rsapublickey: `Llave pública RSA que sirve para encriptar el payload de los servicios`,    
         });
 ```
 
