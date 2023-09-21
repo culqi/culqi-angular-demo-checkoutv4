@@ -29,8 +29,8 @@ Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modi
 
 ```js
 
- const apiKey = "INSERTE_SU_LLAVE_PRIVADA";
- Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
+ const apiKey = "Llave secreta del comercio (sk_test_xxxxxxxxx)";
+ Culqi.publicKey = "Llave pública del comercio (pk_test_xxxxxxxxx)";
  Culqi.settings({
             currency: "PEN",
             amount: Math.floor(Math.random() * 10000) + 1,
