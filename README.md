@@ -31,13 +31,18 @@ Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modi
 
  const apiKey = "sk_test_1573b0e8079863ff";
  Culqi.publicKey = "pk_test_90667d0a57d45c48";
-        Culqi.settings({
+ Culqi.settings({
             currency: "PEN",
-            amount:50000,
+            amount: Math.floor(Math.random() * 10000) + 1,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,
-            culqiclient: "prestashop",
-            culqiclientversion: "1.1.0"
+            order: data.id,         
+            xculqirsaid: 'de35e120-e297-4b96-97ef-10a43423ddec',
+            rsapublickey: `-----BEGIN PUBLIC KEY-----
+            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g
+            r5CyfBKXc3Izq+btIEMCrkDrIsz4Lnl5E3FSD7/htFn1oE84SaDKl5DgbNoev3pM
+            C7MDDgdCFrHODOp7aXwjG8NaiCbiymyBglXyEN28hLvgHpvZmAn6KFo0lMGuKnz8
+            HiuTfpBl6HpD6+02SQIDAQAB
+            -----END PUBLIC KEY-----`,    
         });
 ```
 
