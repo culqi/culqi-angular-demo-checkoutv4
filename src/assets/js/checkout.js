@@ -63,14 +63,21 @@ fetch(apiUrl, requestOptions)
 
 
         // Luego de obtener la respuesta, configura la ventana de pago de Culqi
-        Culqi.publicKey = "pk_test_90667d0a57d45c48";
+        Culqi.publicKey = "pk_test_e94078b9b248675d";
         Culqi.settings({
             currency: "PEN",
             amount: Math.floor(Math.random() * 10000) + 1,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
             order: data.id,
             culqiclient: "prestashop",
-            culqiclientversion: "1.1.0"
+            culqiclientversion: "1.1.0",
+            xculqirsaid: 'de35e120-e297-4b96-97ef-10a43423ddec',
+            rsapublickey: `-----BEGIN PUBLIC KEY-----
+            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g
+            r5CyfBKXc3Izq+btIEMCrkDrIsz4Lnl5E3FSD7/htFn1oE84SaDKl5DgbNoev3pM
+            C7MDDgdCFrHODOp7aXwjG8NaiCbiymyBglXyEN28hLvgHpvZmAn6KFo0lMGuKnz8
+            HiuTfpBl6HpD6+02SQIDAQAB
+            -----END PUBLIC KEY-----`,    
         });
         Culqi.options({
             lang: "auto",
