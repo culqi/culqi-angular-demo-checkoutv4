@@ -7,7 +7,7 @@ function generarNumeroAleatorio() {
   const numeroEntero = Math.floor(numeroDecimal * Math.pow(10, 9));
 
   // Asegurarse de que tenga exactamente 9 dígitos
-  const numeroAleatorio = String(numeroEntero).padStart(9, '0');
+  let numeroAleatorio = String(numeroEntero).padStart(9, '0');
 
   return numeroAleatorio;
 }
@@ -61,7 +61,7 @@ fetch(apiUrl, requestOptions)
         console.log("Respuesta de la API:", data);
         console.log("Order Number:", data.id);
 
-
+     
         // Luego de obtener la respuesta, configura la ventana de pago de Culqi
         Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
         Culqi.settings({
@@ -78,12 +78,13 @@ fetch(apiUrl, requestOptions)
             lang: "auto",
             paymentMethods: {
                 tarjeta: true,
-                yape: false,
+                yape: true,
                 billetera: true,
-                bancaMovil: false,
-                agente: false,
+                bancaMovil: true,
+                agente: true,
                 cuotealo: true,
             },
+            installments: true,
             logo: "https://static.culqi.com/v2/v2/static/img/logo.png"
         });
         Culqi.open();
