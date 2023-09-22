@@ -29,15 +29,15 @@ Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modi
 
 ```js
 
- const apiKey = "INSERTE_SU_LLAVE_PRIVADA";
- Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
-        Culqi.settings({
+ const apiKey = "Llave secreta del comercio (sk_test_xxxxxxxxx)";
+ Culqi.publicKey = "Llave pública del comercio (pk_test_xxxxxxxxx)";
+ Culqi.settings({
             currency: "PEN",
-            amount:50000,
+            amount: Math.floor(Math.random() * 10000) + 1,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,
-            culqiclient: "prestashop",
-            culqiclientversion: "1.1.0"
+            order: data.id,         
+            xculqirsaid: 'INSERTE_SU_RSA_ID',
+            rsapublickey: `INSERTE_SU_LLAVE_RSA`,    
         });
 ```
 
