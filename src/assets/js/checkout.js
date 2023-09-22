@@ -1,4 +1,3 @@
-console.log("Cargando...");
 function generarNumeroAleatorio() {
   // Generar un número decimal aleatorio entre 0 y 1
   const numeroDecimal = Math.random();
@@ -11,7 +10,7 @@ function generarNumeroAleatorio() {
 
   return numeroAleatorio;
 }
-const numeroAleatorio = generarNumeroAleatorio();
+numeroAleatorio = generarNumeroAleatorio();
 
 function obtenerEpochDeFechaActual() {
   // Obtener la fecha actual en segundos desde el 1 de enero de 1970 (epoch)
@@ -28,7 +27,7 @@ console.log("Epoch de fecha actual:", epochDeFechaActual);
 
 // Configura los datos para la solicitud a la API de Culqi
 const apiUrl = "https://api.culqi.com/v2/orders";
-const apiKey = "sk_test_1573b0e8079863ff";
+const apiKey = "sk_test_c2267b5b262745f0";
 const requestData = {
     amount: 600,
     currency_code: "PEN",
@@ -66,11 +65,9 @@ fetch(apiUrl, requestOptions)
         Culqi.publicKey = "pk_test_e94078b9b248675d";
         Culqi.settings({
             currency: "PEN",
-            amount: Math.floor(Math.random() * 10000) + 1,
+            amount: 60000,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,
-            culqiclient: "prestashop",
-            culqiclientversion: "1.1.0",
+            order: data.id,         
             xculqirsaid: 'de35e120-e297-4b96-97ef-10a43423ddec',
             rsapublickey: `-----BEGIN PUBLIC KEY-----
             MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g
