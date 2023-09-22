@@ -21,14 +21,12 @@ function obtenerEpochDeFechaActual() {
 
   return epochConUnDiaMas;
 }
-// Llamar a la función y mostrar el resultado
-const epochDeFechaActual = obtenerEpochDeFechaActual();
-console.log("Epoch de fecha actual:", epochDeFechaActual);
+
 
 // Configura los datos para la solicitud a la API de Culqi
-const apiUrl = "https://api.culqi.com/v2/orders";
-const apiKey = "sk_test_c2267b5b262745f0";
-const requestData = {
+var apiUrl = "https://api.culqi.com/v2/orders";
+var apiKey = "sk_test_c2267b5b262745f0";
+var requestData = {
     amount: 600,
     currency_code: "PEN",
     description: "Venta de prueba",
@@ -39,11 +37,12 @@ const requestData = {
         email: "review158984@culqi.com",
         phone_number: "945737476"
     },
-    expiration_date: epochDeFechaActual
+    expiration_date: obtenerEpochDeFechaActual(),
+    confirm: false
 };
 
 // Configura la solicitud a la API
-const requestOptions = {
+var requestOptions = {
     method: "POST",
     headers: {
         "Authorization": `Bearer ${apiKey}`,
