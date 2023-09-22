@@ -1,4 +1,3 @@
-console.log("Cargando...");
 function generarNumeroAleatorio() {
   // Generar un número decimal aleatorio entre 0 y 1
   const numeroDecimal = Math.random();
@@ -7,11 +6,11 @@ function generarNumeroAleatorio() {
   const numeroEntero = Math.floor(numeroDecimal * Math.pow(10, 9));
 
   // Asegurarse de que tenga exactamente 9 dígitos
-  const numeroAleatorio = String(numeroEntero).padStart(9, '0');
+  let numeroAleatorio = String(numeroEntero).padStart(9, '0');
 
   return numeroAleatorio;
 }
-const numeroAleatorio = generarNumeroAleatorio();
+numeroAleatorio = generarNumeroAleatorio();
 
 function obtenerEpochDeFechaActual() {
   // Obtener la fecha actual en segundos desde el 1 de enero de 1970 (epoch)
@@ -22,14 +21,12 @@ function obtenerEpochDeFechaActual() {
 
   return epochConUnDiaMas;
 }
-// Llamar a la función y mostrar el resultado
-const epochDeFechaActual = obtenerEpochDeFechaActual();
-console.log("Epoch de fecha actual:", epochDeFechaActual);
+
 
 // Configura los datos para la solicitud a la API de Culqi
-const apiUrl = "https://api.culqi.com/v2/orders";
-const apiKey = "sk_test_1573b0e8079863ff";
-const requestData = {
+var apiUrl = "https://api.culqi.com/v2/orders";
+var apiKey = "sk_test_c2267b5b262745f0";
+var requestData = {
     amount: 600,
     currency_code: "PEN",
     description: "Venta de prueba",
@@ -40,11 +37,12 @@ const requestData = {
         email: "review158984@culqi.com",
         phone_number: "945737476"
     },
-    expiration_date: epochDeFechaActual
+    expiration_date: obtenerEpochDeFechaActual(),
+    confirm: false
 };
 
 // Configura la solicitud a la API
-const requestOptions = {
+var requestOptions = {
     method: "POST",
     headers: {
         "Authorization": `Bearer ${apiKey}`,
@@ -61,27 +59,33 @@ fetch(apiUrl, requestOptions)
         console.log("Respuesta de la API:", data);
         console.log("Order Number:", data.id);
 
-
+     
         // Luego de obtener la respuesta, configura la ventana de pago de Culqi
-        Culqi.publicKey = "pk_test_90667d0a57d45c48";
+        Culqi.publicKey = "pk_test_e94078b9b248675d";
         Culqi.settings({
             currency: "PEN",
-            amount: Math.floor(Math.random() * 10000) + 1,
+            amount: 60000,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,
-            culqiclient: "prestashop",
-            culqiclientversion: "1.1.0"
+            order: data.id,         
+            xculqirsaid: 'de35e120-e297-4b96-97ef-10a43423ddec',
+            rsapublickey: `-----BEGIN PUBLIC KEY-----
+            MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDswQycch0x/7GZ0oFojkWCYv+g
+            r5CyfBKXc3Izq+btIEMCrkDrIsz4Lnl5E3FSD7/htFn1oE84SaDKl5DgbNoev3pM
+            C7MDDgdCFrHODOp7aXwjG8NaiCbiymyBglXyEN28hLvgHpvZmAn6KFo0lMGuKnz8
+            HiuTfpBl6HpD6+02SQIDAQAB
+            -----END PUBLIC KEY-----`,    
         });
         Culqi.options({
             lang: "auto",
             paymentMethods: {
                 tarjeta: true,
-                yape: false,
+                yape: true,
                 billetera: true,
-                bancaMovil: false,
-                agente: false,
+                bancaMovil: true,
+                agente: true,
                 cuotealo: true,
             },
+            installments: true,
             logo: "https://static.culqi.com/v2/v2/static/img/logo.png"
         });
         Culqi.open();
