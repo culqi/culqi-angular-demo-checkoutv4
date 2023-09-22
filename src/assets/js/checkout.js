@@ -1,4 +1,3 @@
-console.log("Cargando...");
 function generarNumeroAleatorio() {
   // Generar un número decimal aleatorio entre 0 y 1
   const numeroDecimal = Math.random();
@@ -11,7 +10,7 @@ function generarNumeroAleatorio() {
 
   return numeroAleatorio;
 }
-const numeroAleatorio = generarNumeroAleatorio();
+numeroAleatorio = generarNumeroAleatorio();
 
 function obtenerEpochDeFechaActual() {
   // Obtener la fecha actual en segundos desde el 1 de enero de 1970 (epoch)
@@ -66,11 +65,9 @@ fetch(apiUrl, requestOptions)
         Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
         Culqi.settings({
             currency: "PEN",
-            amount: Math.floor(Math.random() * 10000) + 1,
+            amount: 60000,
             title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,
-            culqiclient: "prestashop",
-            culqiclientversion: "1.1.0",
+            order: data.id,         
             xculqirsaid: 'INSERTE_SU_RSA_ID',
             rsapublickey: `INSERTE_SU_LLAVE_RSA`,    
         });
