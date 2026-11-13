@@ -32,7 +32,11 @@ Configura tus credenciales en `src/assets/js/checkout.js`. Usa tus propias llave
 var apiKey = "INSERTE_SU_LLAVE_PRIVADA";
 Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
 Culqi.settings({
-    xculqirsaid: 'INSERTE_SU_RSA_ID',
+    currency: "PEN",
+    amount: 60000,
+    title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
+    order: data.id, // ID de la orden devuelta por la API
+    xculqirsaid: "INSERTE_SU_RSA_ID",
     rsapublickey: `INSERTE_SU_LLAVE_RSA`,
 });
 ```
