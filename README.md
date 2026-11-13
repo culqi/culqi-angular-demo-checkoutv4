@@ -24,21 +24,17 @@ Ejecuta los siguientes comandos:
 npm install
 ```
 
-## Configuración frontend
-Para configurar el pk, sk, rsa_id, rsa_public_key del comercio se tiene que modificar en el archivo `assets/js/checkout.js`.
+## Configurar las pruebas y ejemplos
+
+Configura tus credenciales en `src/assets/js/checkout.js`. Usa tus propias llaves `pk_test_` y `sk_test_` y las credenciales RSA de tu CulqiPanel. Esta demo realiza solicitudes reales a la API; usa credenciales de prueba y no hagas commit de llaves.
 
 ```js
-
- const apiKey = "Llave secreta del comercio (sk_test_xxxxxxxxx)";
- Culqi.publicKey = "Llave pública del comercio (pk_test_xxxxxxxxx)";
- Culqi.settings({
-            currency: "PEN",
-            amount: Math.floor(Math.random() * 10000) + 1,
-            title: "lorum ipsum dolor sit amet lorem ipsum dolor sit ameta lorem ipsum dolor sit amet",
-            order: data.id,         
-            xculqirsaid: 'INSERTE_SU_RSA_ID',
-            rsapublickey: `INSERTE_SU_LLAVE_RSA`,    
-        });
+var apiKey = "INSERTE_SU_LLAVE_PRIVADA";
+Culqi.publicKey = "INSERTE_SU_LLAVE_PUBLICA";
+Culqi.settings({
+    xculqirsaid: 'INSERTE_SU_RSA_ID',
+    rsapublickey: `INSERTE_SU_LLAVE_RSA`,
+});
 ```
 
 ## Inicializar la demo
